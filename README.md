@@ -26,9 +26,8 @@ This is a frontend server for the Can of Books app that utilizes React and axios
 - Deployed on Netlify
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+2023-02-11T14:18-08:00 - Frontend now features a delete button to delete a specific book by its id number and rerender.
 
 ## Estimates
 
@@ -41,6 +40,16 @@ Start time: 2023-02-11T12:45-08:00
 Finish time: 2023-02-11T12:45-08:00
 
 Actual time needed to complete: XX minutes
+
+### Delete
+
+Estimate of time needed to complete: 1 hours
+
+Start time: 2023-02-15T19:08-08:00
+
+Finish time: 2023-02-15T22:08-08:00
+
+Actual time needed to complete: 2 hours
 
 ## Credit and Collaborations
 
