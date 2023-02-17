@@ -37,11 +37,14 @@ class BestBooks extends React.Component {
   };
 
   render() {
-
     return (
       <>
         <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
-
+        <img
+          className="library-image"
+          src={require('./images/library.jpg')}
+          alt='cozy library'
+        />
         {this.state.books.length ? (
           <Books
             books={this.state.books}
