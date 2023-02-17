@@ -28,6 +28,7 @@ This is a frontend server for the Can of Books app that utilizes React and axios
 ## Change Log
 
 2023-02-11T14:18-08:00 - Frontend now features a delete button to delete a specific book by its id number and rerender.
+2023-02-16T20:00-08:00 - Frontend now features a add book button to add a specific book.
 
 ## Estimates
 
@@ -40,6 +41,16 @@ Start time: 2023-02-11T12:45-08:00
 Finish time: 2023-02-11T12:45-08:00
 
 Actual time needed to complete: XX minutes
+
+### Create
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 2023-02-16T6:00-05:00, 2023-02-16T22:00-05:00
+
+Finish time: 2023-02-16T7:00-05:00, 2023-02-16T22:55-05:00
+
+Actual time needed to complete: 1 hour and 55 minutes
 
 ### Delete
 
