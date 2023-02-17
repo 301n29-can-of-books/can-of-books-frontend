@@ -42,6 +42,16 @@ Finish time: 2023-02-11T12:45-08:00
 
 Actual time needed to complete: XX minutes
 
+### Create
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 2023-02-16T6:00-05:00, 2023-02-16T22:00-05:00
+
+Finish time: 2023-02-16T7:00-05:00, 2023-02-16T22:55-05:00
+
+Actual time needed to complete: 1 hour and 55 minutes
+
 ## Credit and Collaborations
 
 ### Collaborators
