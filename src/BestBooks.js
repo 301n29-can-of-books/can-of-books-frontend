@@ -49,8 +49,6 @@ class BestBooks extends React.Component {
     catch (err) { console.error(err); }
   };
 
-  render() {
-
   deleteBook = async (_id) => {
     let url = `${process.env.REACT_APP_SERVER}/books/${_id}`;
     try {
@@ -67,17 +65,15 @@ class BestBooks extends React.Component {
     return (
       <>
         <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
-        <BookFormModal
-          show={this.state.showBookFormModal}
-          close={this.handleCloseBookFormModal}
-          postBook={this.postBook}/>
-        {this.state.books.length ? (
-          <Book books={this.state.books}/>
         <img
           className="library-image"
           src={require('./images/library.jpg')}
           alt='cozy library'
         />
+        <BookFormModal
+          show={this.state.showBookFormModal}
+          close={this.handleCloseBookFormModal}
+          postBook={this.postBook}/>
         {this.state.books.length ? (
           <Books
             books={this.state.books}
