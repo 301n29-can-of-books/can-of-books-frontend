@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
-import BookFormModal from './BookFormModal';
+import AddModal from './AddModal';
 import Books from './Books';
 
 class BestBooks extends React.Component {
@@ -10,7 +10,6 @@ class BestBooks extends React.Component {
     this.state = {
       books: [],
       showBookFormModal: false,
-
     };
   }
 
@@ -80,7 +79,7 @@ class BestBooks extends React.Component {
           src={require('./images/library.jpg')}
           alt='cozy library'
         />
-        <BookFormModal
+        <AddModal
           show={this.state.showBookFormModal}
           close={this.handleCloseBookFormModal}
           postBook={this.postBook}/>
