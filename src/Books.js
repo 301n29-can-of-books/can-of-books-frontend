@@ -33,6 +33,7 @@ class Books extends React.Component {
               <p>{book.description}</p>
               <p>{`Status: ${book.status}`}</p>
               <div className='text-center'>
+                <Button>Update Book</Button>
                 <Button onClick={() => {
                   this.props.deleteBook(book._id);
                   const currentIdx = this.state.index;
