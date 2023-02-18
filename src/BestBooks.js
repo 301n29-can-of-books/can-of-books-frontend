@@ -61,6 +61,16 @@ class BestBooks extends React.Component {
     }
   };
 
+  putBook = async(updatedBooks) => {
+    try{
+      let url = `${process.env.REACT_APP_SERVER}/books/${updatedBooks._id}`;
+      let response = await axios.put(url, updatedBooks);
+      const updatedBooksArr = this.state.books.map(oldBook => updatedBooks._id === oldBook._id ? updatedBooks : oldBook);
+      this.setState({books: updatedBooksArr});
+    }
+    catch(err){console.error(err);}
+  };
+
   render() {
     return (
       <>
@@ -78,6 +88,7 @@ class BestBooks extends React.Component {
           <Books
             books={this.state.books}
             deleteBook={this.deleteBook}
+            putBook={this.putBook}
           />
         ) : (
           <h3>No Books Found :(</h3>
