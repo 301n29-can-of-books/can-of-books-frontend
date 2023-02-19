@@ -1,17 +1,18 @@
 import React from 'react';
 import { Button, Form, Modal,} from 'react-bootstrap';
 
-class BookFormModal extends React.Component {
+class UpdateBookModal extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
     const status = e.target.status.checked ? 'Complete' : 'Incomplete';
-    const newBook ={
-      title: e.target.title.value,
-      description: e.target.description.value,
-      status: status
+    const updatedBook ={
+      title: e.target.title.value || this.props.bookToUpdate.title,
+      description: e.target.description.value || this.props.bookToUpdate.description,
+      status: status || this.props.bookToUpdate.status,
+      _id: this.props.bookToUpdate._id
     };
-    this.props.postBook(newBook);
+    this.props.putBook(updatedBook);
     e.target.reset();
   };
 
@@ -26,16 +27,19 @@ class BookFormModal extends React.Component {
           <Form onSubmit={this.handleSubmit}>
             <Form.Group controlId="title">
               <Form.Label>Book Title</Form.Label>
-              <Form.Control type="text" placeholder="Book title here..."/>
+              <Form.Control type="text" placeholder={this.props.bookToUpdate.title}/>
             </Form.Group>
             <Form.Group controlId="description">
               <Form.Label>Book description</Form.Label>
-              <Form.Control type="text" placeholder="Book description here..."/>
+              <Form.Control type="text" placeholder={this.props.bookToUpdate.description}/>
             </Form.Group>
             <Form.Group controlId="status">
-              <Form.Check type="checkbox" label="Completed"/>
+              <Form.Check
+                type="checkbox"
+                label="Completed"
+                defaultChecked={this.props.bookToUpdate.status === 'Complete' ? true : false}/>
             </Form.Group>
-            <Button type='submit'>Add Book</Button>
+            <Button type='submit'>Update Book</Button>
           </Form>
         </Modal.Body>
         <Modal.Footer>
@@ -46,4 +50,4 @@ class BookFormModal extends React.Component {
   }
 }
 
-export default BookFormModal;
+export default UpdateBookModal;
