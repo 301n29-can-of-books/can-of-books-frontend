@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Carousel } from 'react-bootstrap';
-import UpdateModal from './UpdateModal';
+import UpdateBookModal from './UpdateBookModal';
 
 class Books extends React.Component {
   constructor(props) {
@@ -59,7 +59,7 @@ class Books extends React.Component {
             </Carousel.Item>
           ))}
         </Carousel>
-        <UpdateModal
+        <UpdateBookModal
           show={this.state.showModal}
           close={this.handleCloseModal}
           putBook={this.props.putBook}

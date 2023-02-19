@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Form, Modal,} from 'react-bootstrap';
 
-class UpdateModal extends React.Component {
+class UpdateBookModal extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -50,4 +50,4 @@ class UpdateModal extends React.Component {
   }
 }
 
-export default UpdateModal;
+export default UpdateBookModal;
