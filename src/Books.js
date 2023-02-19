@@ -19,7 +19,6 @@ class Books extends React.Component {
   handleShowModal = (book) => this.setState({showModal: true, bookToUpdate: book});
 
   handleCloseModal = () => {
-    console.log(this.state.showModal, this.state.bookToUpdate);
     this.setState({showModal: false});
   };
 
@@ -44,7 +43,7 @@ class Books extends React.Component {
                 <p>{book.description}</p>
                 <p>{`Status: ${book.status}`}</p>
                 <div className='text-center'>
-                  <Button onClick={this.handleShowModal(book)}>Update Book</Button>
+                  <Button onClick={() => this.handleShowModal(book)}>Update Book</Button>
                   <Button onClick={() => {
                     this.props.deleteBook(book._id);
                     const currentIdx = this.state.index;

@@ -18,7 +18,7 @@ class UpdateModal extends React.Component {
 
   render() {
     return (
-      <Modal show={false}
+      <Modal show={this.props.show}
         onHide={this.props.close}>
         <Modal.Header closeButton></Modal.Header>
         <Modal.Title>Book Title</Modal.Title>
@@ -37,9 +37,9 @@ class UpdateModal extends React.Component {
               <Form.Check
                 type="checkbox"
                 label="Completed"
-                defaultValue={this.props.bookToUpdate.status === 'Complete' ? true : false}/>
+                defaultChecked={this.props.bookToUpdate.status === 'Complete' ? true : false}/>
             </Form.Group>
-            <Button type='submit'>Add Book</Button>
+            <Button type='submit'>Update Book</Button>
           </Form>
         </Modal.Body>
         <Modal.Footer>
