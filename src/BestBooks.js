@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
-import BookFormModal from './BookFormModal';
+import AddBookodal from './AddBookModal';
 import Books from './Books';
 
 class BestBooks extends React.Component {
@@ -9,8 +9,7 @@ class BestBooks extends React.Component {
     super(props);
     this.state = {
       books: [],
-      showBookFormModal: false,
-
+      showModal: false,
     };
   }
 
@@ -18,15 +17,15 @@ class BestBooks extends React.Component {
     this.getBooks();
   }
 
-  handleShowBookFormModal = () => {
+  handleShowModal = () => {
     this.setState({
-      showBookFormModal: true,
+      showModal: true,
     });
   };
 
-  handleCloseBookFormModal = () => {
+  handleCloseModal = () => {
     this.setState({
-      showBookFormModal: false,
+      showModal: false,
     });
   };
 
@@ -34,7 +33,7 @@ class BestBooks extends React.Component {
     let url = `${process.env.REACT_APP_SERVER}/books`; //the react_app_server is the base url, /books is the end point
     try {
       const response = await axios.get(url);//making a get request to the server, storing the data we get back into response
-      this.setState({ books: response.data }, () => console.log(this.state.books)); // this line is saving the data we get back from the database into the books state property
+      this.setState({ books: response.data }); // this line is saving the data we get back from the database into the books state property
     } catch (error) {
       console.log(error);
     }
@@ -61,6 +60,16 @@ class BestBooks extends React.Component {
     }
   };
 
+  putBook = async(updatedBooks) => {
+    try{
+      let url = `${process.env.REACT_APP_SERVER}/books/${updatedBooks._id}`;
+      let response = await axios.put(url, updatedBooks);
+      const updatedBooksArr = this.state.books.map(oldBook => updatedBooks._id === oldBook._id ? updatedBooks : oldBook);
+      this.setState({books: updatedBooksArr});
+    }
+    catch(err){console.error(err);}
+  };
+
   render() {
     return (
       <>
@@ -70,19 +79,20 @@ class BestBooks extends React.Component {
           src={require('./images/library.jpg')}
           alt='cozy library'
         />
-        <BookFormModal
-          show={this.state.showBookFormModal}
-          close={this.handleCloseBookFormModal}
+        <AddBookodal
+          show={this.state.showModal}
+          close={this.handleCloseModal}
           postBook={this.postBook}/>
         {this.state.books.length ? (
           <Books
             books={this.state.books}
             deleteBook={this.deleteBook}
+            putBook={this.putBook}
           />
         ) : (
           <h3>No Books Found :(</h3>
         )}
-        <Button onClick={this.handleShowBookFormModal}>Add Book</Button>
+        <Button onClick={this.handleShowModal}>Add Book</Button>
       </>
     );
   }
